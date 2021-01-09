@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    {{>cssjs}}
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="min-height: 800px;">
+            <div class="col-md-4 col-12 rounded border border-secondary p-5">
+                    <label for="">Ном. телефона</label>
+                    <input maxlength="11" id="num" type="text" class="form-control mb-2">
+                    <label for="">Пароль</label>
+                    <input id="pass" type="password" class="form-control mb-2">
+                    <label for="">Повторите пароль</label>
+                    <input id="pass2" type="password" class="form-control mb-2">
+                    <span id="error" class="text-danger"></span>
+                    <button class="col-12 btn btn-dark mb-5" id="regbtn">Регистрация</button>
+                <button class="col-12 btn btn-dark mb-1" onclick="location.href='/log'">Вход</button>
+                <button class="col-12 btn btn-dark" onclick="location.href='/'">На главную страницу</button>
+            </div>
+        </div>
+    </div>
+ 
+</body>

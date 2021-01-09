@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Добро пожаловать: {{sessionExist}}</title>
+    {{>cssjs}}
+</head>
+<body>
+    {{>header}}
+    
+    <div class="container">
+    <h1 class="display-3">Номер телефона: {{sessionExist}}</h1>
+   
+    <h2>Заказы</h2>
+
+    {{#if ('isnotundefined' orders)}}
+        {{#each orders}}
+            <table class="py-5 table table-bordered">
+                <tr>
+                    <td colspan="5">Номер заказа: {{id_order}}</td>
+                </tr>
+                <tr>
+                    <td class="text-center" colspan="3">Состава</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-center">Id-продукта</td>
+                    <td class="text-center">Наименование</td>
+                    <td class="text-center">Количество</td>
+                    <td class="text-center">Цена</td>
+                </tr>
+            {{#each ../contain}}
+                {{#isis id_order ../id_order}}
+                <tr>
+                    <td class="text-center">{{id_profuct}}</td>
+                    <td class="text-center">{{product_name}}</td>
+                    <td class="text-center">{{quantity}}</td>
+                    <td class="text-center">{{price}} р.</td>
+                </tr>
+                {{/isis}}
+            {{/each}}
+                <tr>
+                    <td class="" colspan="3">Общая стоимость</td>
+                    <td class="text-center">{{sum}} р.</td>
+                </tr>
+            </table>
+        {{/each}}
+
+    {{else}}
+        <h3>У вас нет заказов...</h3>
+    {{/if}}
+    </div>
+    {{>footer}}
+</body>
+</html>

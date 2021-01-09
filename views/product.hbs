@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    {{>cssjs}}
+</head>
+<body>
+    {{>header}}
+    
+    <section class="py-5">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-12 row justify-content-center">
+                    <img src="{{product.img}}" alt="product" class="rounded" style="height: 500px; width:500px">
+                </div>
+                <div class="col-lg-3 col-12 my-3">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class="text-center" colspan="2">{{product.product_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Цена за ед. товара:</td>
+                            <td id="pr-show">{{product.price}} р.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="row justify-content-center">
+                                    <button class="btn btn-dark" id="minus">-</button><input type="text" name="" class="form-control col-8 text-center" value="1" id="quantity"> <button class="btn btn-dark" id="plus">+</button>
+                                </div> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Итог</td>
+                            <td><span id="summarize">{{product.price}}</span> р.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button class="btn btn-dark col-12 mt-4" id="addin">Добавить в корзину</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-lg-8 col-12 mt-5">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#description">Описание</a>
+                        </li>
+                        {{#if ('isnotundefined' product.additional_info)}}
+                            <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#characteristics">Характеристики</a>
+                            </li>
+                        {{/if}}
+                        
+                        {{#if ('isnotundefined' product.en)}}
+                            <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#en">Энергертическая ценность</a>
+                            </li>
+                        {{/if}}
+
+                        {{#if ('isnotundefined' product.ingridients)}}
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#ingr">Состав</a>
+                            </li>
+                        {{/if}}
+                        
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="description">
+                                {{product.product_info}}
+                            </div>
+                            {{#if ('isnotundefined' product.additional_info)}}
+                            <div class="tab-pane fade" id="characteristics">
+                                {{product.additional_info}}
+                            </div>
+                            {{/if}}
+
+                            {{#if ('isnotundefined' product.en)}}
+                            <div class="tab-pane fade" id="en">
+                                <table class="table col-6 mt-3 table-bordered">
+                                    <tr>
+                                        <td colspan="2">Эн. ценность продукта на 100 гр.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Эн. ценность</td>
+                                        <td>{{product.en}}/клДж</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ккал</td>
+                                        <td>{{product.kkal}}/ккл</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Белки</td>
+                                        <td>{{product.protein}}/гр</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Жиры</td>
+                                        <td>{{product.fat}}/гр</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Углеводы</td>
+                                        <td>{{product.carbohydrates}}/гр</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            {{/if}}
+
+                            {{#if ('isnotundefined' product.ingridients)}}
+                            <div class="tab-pane fade" id="ingr">
+                                {{product.ingridients}}
+                            </div>
+                            {{/if}}
+                        </div>
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+</body>

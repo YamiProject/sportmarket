@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина: {{sessionExist}}</title>
+    {{>cssjs}}
+</head>
+<body>
+    {{>header}}
+    
+   <section>
+       <div class="container">
+           <h1 class="py-5">Корзина</h1>
+
+            {{#if ('isnotundefined' basket)}}
+                
+           <table class="table col-12 table-bordered">
+               <tr>
+                   <th class="text-center">ID</th>
+                   <th class="text-center">Наименование</th>
+                   <th class="text-center">Кол-во</th>
+                   <th class="text-center">Цена</th>
+                   <th></th>
+               </tr>
+
+                {{#each basket }}
+               <tr>
+                   <td class="text-center">{{id_product}}</td>
+                   <td class="text-center">{{product_name}}</td>
+                   <td class="text-center"> {{quantity}}</td>
+                   <td class="text-center">
+                       {{#summi quantity price}}
+                       {{/summi}}
+                       р.
+                   </td>
+                   <td><button class="btn btn-light col-12 delete" id="{{id_basket}}">Убрать</button></td>
+               </tr>
+               {{/each}}
+
+               <tr>
+                   <td colspan="4">Общая сумма</td>
+                   <td class="text-center"> {{summ}} р.</td>
+               </tr>
+           </table>
+
+           <button class="btn btn-dark col-12 py-3 my-5" id="makeorder">Заказать</button>
+           {{else}}
+                <h2>В корзине отсутсвуют заказы!</h2>
+            {{/if}}
+       </div>
+   </section>
+    {{>footer}}
+</body>
+</html>

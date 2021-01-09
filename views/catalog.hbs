@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог товаров магазина PowerMax">
+    <meta name="keywords" content="интернет, магазин, спортивное, питание, каталог">
+    <title>Интернет-магазин сп. питания POWERMAX</title>
+    {{>cssjs}}
+</head>
+<body>
+    {{>header}}
+    
+    {{>categories}}
+    
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 h-100" style="min-height: 800px;">
+                    <div class="row" >
+                        {{#each products}}
+                            <div class="col-md-3 col-12 border">
+                                <div class="row border py-3 px-5 justify-content-center" style="min-height: 400px;">
+                                    <img src="{{img}}" alt="productimg" class="rounded" style="height: 150px; width:150px">
+                                    <span class="col-12 text-center">{{product_name}}</span>
+                                    <span class="col-12 text-right">Цена: {{price}}</span>
+                                    <button class="btn btn-dark col-12 align-self-end" onclick="location.href='/product/{{id_product}}'">Подробнее...</button>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{>footer}}
+</body>
+</html>

@@ -1,0 +1,11 @@
+<section style="min-height: 100px;">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-10 row justify-content-center">
+                    {{#each categories }}
+                        <button class="btn btn-dark col-lg-2 col-12 px-5 py-3 mx-2 my-3" onclick="location.href='/category/{{id_category}}'">{{category_name}}</button>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>

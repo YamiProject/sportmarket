@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Интернет-магазин сп. питания POWERMAX</title>
+    {{>cssjs}}
+</head>
+<body>
+    {{>header}}
+    
+    <section class="p-5">
+        <div class="container">
+            <div style="min-height: 400px; background: red;" class="row"></div>
+        </div>
+    </section>
+    
+    <section class="py-5 mt-3" style="min-height: 300px; bg-light">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <h1 class="col-12 text-center py-4 display-4">Категории товаров</h1>
+                <div class="col-11 row justify-content-center">
+                    {{#each categories }}
+                        <button class="btn btn-dark col-lg-2 col-12 px-5 py-3 mx-2 my-3" onclick="location.href='/category/{{id_category}}'">{{category_name}}</button>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    {{>footer}}
+</body>
+</html>
